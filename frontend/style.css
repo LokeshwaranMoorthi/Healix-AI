@@ -1,0 +1,34 @@
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+}
+
+/* HIGH RISK BOX STATE */
+.risk-high-box {
+    background-color: #fee2e2 !important; 
+    border: 3px solid #ef4444 !important;
+    animation: pulse-red 1.5s infinite !important;
+}
+
+/* HIGH RISK TEXT COLORS */
+.text-danger-bold {
+    color: #991b1b !important; /* Deep Red for HIGH */
+    font-weight: 800 !important;
+}
+
+.label-danger {
+    color: #b91c1c !important; /* Red for "Safety Risk" label */
+    font-weight: 600 !important;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+#insights-panel { animation: slideUp 0.6s ease-out forwards; }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

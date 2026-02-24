@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healix | Peer Network Specialist Referral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fffcfc; min-height: 100vh; }
+        .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(225, 29, 72, 0.1); transition: all 0.4s ease; }
+        .video-gradient { background: linear-gradient(to bottom, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.9)); }
+        @keyframes pulse-emerald { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-booking { animation: pulse-emerald 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body class="pb-20">
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="location.href='/'">
+            <div class="w-10 h-10 bg-rose-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-rose-200">H</div>
+            <span class="text-xl font-extrabold text-slate-900 tracking-tight">Healix <span class="text-rose-600">Network</span></span>
+        </div>
+        <button onclick="location.href='/'" class="text-sm font-bold text-slate-500 hover:text-rose-600 transition-colors">← Back to Dashboard</button>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 mt-12">
+        <header class="mb-12">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Specialist Referral Engine</h1>
+            <p class="text-slate-500 italic font-medium">"Bridging primary care with institutional expertise via RAG."</p>
+        </header>
+
+        <div class="grid gap-8">
+            <div class="glass-panel p-8 rounded-[2.5rem] shadow-xl shadow-rose-100/50">
+                <label class="block text-[10px] font-black text-rose-500 uppercase tracking-[0.2em] mb-4">Input Clinical Findings</label>
+                <textarea id="findingsInput" rows="5" 
+                    class="w-full p-6 bg-slate-50 border-2 border-transparent rounded-3xl text-slate-700 focus:border-rose-200 focus:bg-white outline-none transition-all font-medium text-sm"
+                    placeholder="E.g., 55M with eGFR 35 and uncontrolled Diabetes..."></textarea>
+                
+                <button onclick="getReferral()" id="btnText"
+                    class="mt-6 w-full py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-rose-600 transition-all shadow-xl flex items-center justify-center gap-3 group">
+                    <span>Find Appropriate Specialist</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </button>
+            </div>
+
+            <div id="resultArea" class="hidden glass-panel p-8 rounded-[2.5rem] border-2 border-rose-100 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-8 border-b border-rose-50">
+                    <div class="flex items-center gap-5">
+                        <div class="w-16 h-16 bg-rose-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-rose-200">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-black text-rose-500 uppercase tracking-widest mb-1">Recommended Consultant</h4>
+                            <div id="specialistTitle" class="text-2xl font-black text-slate-900">--</div>
+                            <p class="text-xs text-slate-400 font-bold" id="specialistHospital">Verified Network Member</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Available Now</span>
+                    </div>
+                </div>
+                
+                <div class="bg-rose-50/40 p-8 rounded-3xl border border-rose-100/50">
+                    <h5 class="text-xs font-black text-slate-900 uppercase tracking-widest mb-4">AI Clinical Rationale</h5>
+                    <p id="referralLogic" class="text-slate-600 leading-relaxed font-medium italic">--</p>
+                </div>
+                
+                <div class="mt-8 flex flex-wrap gap-4 justify-between items-center">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Status: <span class="text-rose-600">Urgent Consult</span></span>
+                    <div class="flex gap-3">
+                        <button onclick="bookAppointment()" id="bookBtn" class="px-8 py-3 bg-slate-900 text-white text-[11px] font-black rounded-xl hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg">
+                            Book Now
+                        </button>
+                        <button onclick="openVideo()" class="px-8 py-3 bg-rose-600 text-white text-[11px] font-black rounded-xl hover:bg-rose-700 transition-all uppercase tracking-widest shadow-lg shadow-rose-200">
+                            Video Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="videoOverlay" class="hidden fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-50 items-center justify-center p-4">
+        <div class="w-full max-w-4xl rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative bg-slate-900">
+            <div class="relative aspect-video bg-slate-800">
+                <img id="specialistVideoFrame" src="" class="w-full h-full object-cover" alt="Specialist Stream">
+                <div class="absolute inset-0 video-gradient"></div>
+                <div class="absolute bottom-6 right-6 w-32 md:w-48 aspect-video bg-slate-800 rounded-2xl border-2 border-white/20 overflow-hidden shadow-2xl">
+                    <div class="w-full h-full flex items-center justify-center bg-rose-600 text-white font-black text-sm uppercase">You</div>
+                </div>
+                <div class="absolute top-6 left-6 flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span id="videoSpecialistName" class="text-[10px] font-black text-white uppercase tracking-widest">--</span>
+                </div>
+            </div>
+            <div class="p-8 flex justify-center items-center gap-6">
+                <button class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" stroke-width="2" stroke-linecap="round"/></svg></button>
+                <button onclick="closeVideo()" class="px-10 py-4 bg-rose-600 text-white font-black rounded-2xl shadow-xl hover:bg-rose-500 uppercase tracking-widest text-xs">End Call</button>
+                <button class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="2" stroke-linecap="round"/></svg></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function getReferral() {
+            const findings = document.getElementById('findingsInput').value;
+            const btn = document.getElementById('btnText');
+            const resultArea = document.getElementById('resultArea');
+            const bookBtn = document.getElementById('bookBtn');
+
+            if (!findings) return alert("Please enter clinical findings.");
+            
+            // Reset Book Button State
+            bookBtn.innerHTML = "Book Now";
+            bookBtn.className = "px-8 py-3 bg-slate-900 text-white text-[11px] font-black rounded-xl hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg";
+            bookBtn.disabled = false;
+
+            btn.innerHTML = `<span>Querying Physician Hub...</span>`;
+            btn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('findings', findings);
+                const response = await fetch('/api/referral/', { method: 'POST', body: formData });
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    let name = "Dr. Priya Sharma";
+                    let hospital = "Apollo Hospitals • Nephrologist";
+                    const lowFindings = findings.toLowerCase();
+                    
+                    if (lowFindings.includes('heart') || lowFindings.includes('cardio')) {
+                        name = "Dr. Ankit Reddy"; hospital = "Fortis Escorts • Cardiologist";
+                    } else if (lowFindings.includes('malaria') || lowFindings.includes('fever')) {
+                        name = "Dr. Sarah D'Souza"; hospital = "Manipal Hospitals • ID Specialist";
+                    }
+
+                    document.getElementById('specialistTitle').innerText = name;
+                    document.getElementById('specialistHospital').innerText = hospital;
+                    document.getElementById('referralLogic').innerText = data.analysis;
+                    
+                    resultArea.classList.remove('hidden');
+                    resultArea.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (error) {
+                alert("RAG Error.");
+            } finally {
+                btn.innerHTML = `Find Appropriate Specialist`;
+                btn.disabled = false;
+            }
+        }
+
+        function bookAppointment() {
+            const btn = document.getElementById('bookBtn');
+            const doctor = document.getElementById('specialistTitle').innerText;
+            
+            btn.innerHTML = `<span class="animate-pulse">Booking...</span>`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const bookingId = "HLX-" + Math.floor(1000 + Math.random() * 9000);
+                btn.innerHTML = `✓ Booked`;
+                btn.className = "px-8 py-3 bg-emerald-600 text-white text-[11px] font-black rounded-xl uppercase tracking-widest shadow-lg transition-all";
+                alert(`SUCCESS: Appointment confirmed with ${doctor}.\nBooking ID: ${bookingId}\nConfirmation sent via WhatsApp.`);
+            }, 1500);
+        }
+
+        function openVideo() {
+            const name = document.getElementById('specialistTitle').innerText;
+            const seed = name.split(' ')[1] || "Specialist";
+            document.getElementById('videoSpecialistName').innerText = name;
+            document.getElementById('specialistVideoFrame').src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=b6e3f4`;
+            document.getElementById('videoOverlay').classList.replace('hidden', 'flex');
+        }
+
+        function closeVideo() {
+            document.getElementById('videoOverlay').classList.replace('flex', 'hidden');
+        }
+    </script>
+</body>
+</html>

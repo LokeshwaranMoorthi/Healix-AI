@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Healix | Grandma's Remedies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 p-6">
+    <div class="max-w-2xl mx-auto">
+        <button onclick="location.href='/'" class="mb-6 text-orange-700">← Back to Hub</button>
+        
+        <div class="bg-white p-8 rounded-3xl shadow-xl border border-orange-100 text-center">
+            <div class="text-5xl mb-4">🍵</div>
+            <h2 class="text-2xl font-bold text-orange-950 mb-2">Ask Grandma (Patti)</h2>
+            <p class="text-orange-800/60 mb-8">Natural home remedies for common symptoms.</p>
+            
+            <input type="text" id="symptom-input" placeholder="e.g. I have a dry cough and sore throat" 
+                   class="w-full p-4 rounded-xl border border-orange-200 focus:ring-2 focus:ring-orange-500 outline-none mb-4">
+            
+            <button onclick="askGrandma()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-bold hover:bg-orange-700 shadow-lg shadow-orange-100">Get Patti's Advice</button>
+        </div>
+
+        <div id="patti-response" class="hidden mt-8 bg-orange-100/50 p-8 rounded-3xl border border-orange-200 italic text-orange-900">
+            <p id="patti-voice" class="text-lg leading-relaxed"></p>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

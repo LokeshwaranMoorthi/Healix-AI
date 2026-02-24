@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healix | Lab Buddy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/static/scripts.js" defer></script>
+</head>
+<body class="bg-slate-50 p-6">
+    <div class="max-w-4xl mx-auto">
+        <button onclick="location.href='/'" class="mb-6 text-slate-500 hover:text-emerald-600">← Back to Hub</button>
+        
+        <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl">
+            <h2 class="text-2xl font-bold mb-6 text-emerald-900">Lab Report Buddy</h2>
+            
+            <div id="drop-zone" class="border-2 border-dashed border-emerald-100 rounded-2xl p-12 text-center bg-emerald-50/30 cursor-pointer hover:bg-emerald-50 transition-all">
+                <input type="file" id="file-input" class="hidden" accept="image/*">
+                <p id="file-name" class="font-semibold text-emerald-900">Click to upload Lab Report (PDF/JPG)</p>
+            </div>
+
+            <button onclick="analyzeLabReport()" id="analyze-btn" class="w-full mt-6 bg-emerald-600 text-white py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all">Explain My Report</button>
+        </div>
+
+        <div id="insights-panel" class="hidden mt-8">
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-emerald-50">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-emerald-900">Biomarker Analysis</h3>
+                    <div class="flex gap-2">
+                        <button id="download-btn" onclick="downloadPDF()" class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-bold hover:bg-emerald-700">Download PDF</button>
+                        <button onclick="speakResults(analysisResultText)" class="p-2 bg-emerald-100 rounded-full text-emerald-600">🔊</button>
+                    </div>
+                </div>
+                <div id="analysis-content" class="prose prose-emerald max-w-none"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
