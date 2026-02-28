@@ -53,7 +53,7 @@ Healix is built to leverage the **Cortensor execution backbone** for high-fideli
   "reputation_artifact": "ipfs://Qm..."
 }
 
-# Healix AI: Grounded Intelligence for the Next Billion
+### **Healix AI: Grounded Intelligence for the Next Billion**
 
 A triple-grounded RAG ecosystem eliminating medical hallucinations.  
 Healix bridges the clinical gap by connecting doctor-led SOAP automation with verified pharmacy and traditional wisdom.
