@@ -55,6 +55,7 @@ Healix is a **multi-agent orchestrator** built for autonomous, high-stakes clini
   ],"outcome": "Safe - No Interaction Detected",
   "reputation_artifact": "ipfs://Qm..."
 }
+---
 # 🩺 Healix AI  
 **Grounded Intelligence for the Next Billion**
 
