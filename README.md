@@ -1,87 +1,98 @@
 # Healix-Agent: Universal Deterministic Clinical Intelligence
 
-Real-Time Multimodal Care | Deployed on DigitalOcean Gradient™ | Powered by Gemini Live
+**Frontier AI for the Next Billion**  
 
-## The Problem
+"In healthcare AI, accuracy is the only metric that matters."
 
-In healthcare, "Confidence Traps" (hallucinations) cost lives.  
-For the sensory-impaired, prescriptions are "dead ends" and consultations are "silent rooms."
+Healix-Agent is an autonomous clinical bridge that sees for the blind, hears for the deaf, and acts for the digitally excluded. By enforcing a strict mathematical $T=0.0$ constraint, we eliminate hallucinations and restore clinical autonomy.
 
-## The Solution
+## Multi-Cloud Agentic Architecture
 
-Healix-Agent — an active, orchestrating agent that "sees" for the blind and "hears" for the deaf, running on a deterministic reasoning engine with:
+Healix-Agent is architected to leverage the frontier features of each major platform:
 
-$$
-T = 0.0
-$$
+| Feature              | Provider                  | Implementation                                                                 |
+|----------------------|---------------------------|--------------------------------------------------------------------------------|
+| Real-Time Voice      | AWS / Google              | Nova 2 Sonic & Gemini Live API for low-latency, natural turn-taking (barge-in) |
+| UI Automation        | AWS                       | Nova Act — autonomous navigation of legacy, non-accessible healthcare portals  |
+| GPU Acceleration     | DigitalOcean Gradient™    | docTR (Vision Transformers) on H100 Droplets for handwritten prescription OCR  |
+| Memory / RAG         | Vector DB                 | Nova Multimodal Embeddings & Pinecone for Triple-Grounded verification         |
 
-## Technical Architecture: The Agentic Loop
+## Core Engineering Pillars
 
-Healix-Agent is not a chatbot; it is a high-availability production system distributed across a hybrid-cloud environment.
+### 1. Deterministic Reasoning Layer ($T=0.0$)
 
-### 1. The Reasoning Layer (Gemini Live API)
-
-We utilize the Gemini Multimodal Live API via the Google Agent Development Kit (ADK). This enables:
-
-- Barge-in Support: Patients can naturally interrupt the agent mid-response.  
-- Unified Context: Audio, video (prescriptions), and text are processed in a single, stateful WebSocket stream.
-
-### 2. The Acceleration Layer (DigitalOcean Gradient™)
-
-To achieve sub-second latency for Vision Transformer (ViT) tasks, we leverage DigitalOcean Gradient™ GPU Droplets:
-
-- docTR Inference: Messy, handwritten prescriptions parsed using docTR, containerized and scaled on DigitalOcean.  
-- Gradient™ Knowledge Bases: Our "Triple-Grounding" RAG (CIMS, MSF, RMRL) is indexed and managed using Gradient’s production-ready AI workflows.
-
-### 3. The Safety Layer ($T=0.0$)
-
-We enforce a strict mathematical constraint to eliminate medical creativity:
+To solve the medical "Confidence Trap," we lock inference parameters:
 
 $$
 T = 0.0
 $$
 
-The system only reasons over verified tokens retrieved from indexed clinical namespaces.
+This transforms foundation models into Pure Logic Controllers — they are prohibited from creative generation and may only reason over verified tokens retrieved from our Circle of Trust.
 
-## Inclusive Modules: Designed for the Next Billion
+### 2. The Grounding Hierarchy (Triple-RAG)
 
-### I. Patient Autonomy (Empathetic Independence)
+Every clinical decision is cross-referenced against three high-fidelity namespaces:
+
+- **Pharmacological Agent**  
+  Real-time CIMS India drug-to-drug interaction checks
+
+- **Clinical Agent**  
+  Diagnostic grounding against MSF (Doctors Without Borders) protocols
+
+- **Heritage Agent**  
+  Ancient Tamil Siddha & Ayurvedic wisdom from digitized RMRL Manuscripts
+
+## Inclusive Ecosystem: Beyond the Text-Box
+
+### I. For the Sensory Impaired — The Patient Suite
 
 - **Vision-to-Voice Pharmacy**  
-  The agent "sees" medicine labels and prescriptions, cross-references CIMS India, and speaks audible safety warnings for blind users.
+  Uses multimodal understanding to read physical prescriptions and instantly speak safety warnings.
 
 - **Lab Buddy**  
-  Translates complex biomarkers ($HbA1c$, $eGFR$, etc.) into plain-language summaries with synchronized audio-visual narration.
+  Maps complex biomarkers ($HbA1c$, $eGFR$, etc.) into plain-language audio summaries with synchronized narration.
 
 - **Grandma’s Home**  
-  Preservation of RMRL Ancient Tamil Manuscripts — grounding traditional remedies in modern clinical safety standards.
+  Digitally preserves heritage remedies with 100% citation-backed clinical safety validation.
 
-### II. Physician Hub (High-Stakes Efficiency)
+### II. The Physician Hub: High-Stakes Efficiency
 
 - **Universal S.O.A.P. Agent**  
-  Automates clinical documentation, reducing physician burnout by ~40% through structured parsing of patient history.
-  
+  Automatically structures patient history into clean SOAP notes, reducing documentation burden by ~40% for all doctors.
+
 - **Seamless Telehealth**  
   A "Second Opinion Engine" with real-time transcription, facilitating perfect communication between doctors and any patient.
 
 - **Glass-Box Logic**  
-  Generates Clinical Logic Trees grounded in MSF Protocols, visually and audibly showing the complete evidence pathway for every diagnostic suggestion.
+  Produces transparent Clinical Logic Trees grounded in MSF Protocols, offering audible narration and visual evidence pathways.
 
-## Tech Stack & Implementation
+- **Nova Act UI Navigation**  
+  Bridges the digital divide: voice commands execute actions on legacy web portals that lack accessibility features.
 
-- Orchestration: Google ADK & Gemini Live API (Stateful WebSockets)  
-- Infrastructure: DigitalOcean Gradient™ GPU Droplets (NVIDIA H100), DOKS (Kubernetes)  
-- Vision: docTR (Vision Transformers) for high-speed OCR  
-- Grounding: Gradient™ Knowledge Bases, Pinecone Vector DB, CIMS India, MSF Protocols  
-- Frontend: React with high-contrast UX/UI (Tailwind CSS) for visual accessibility
-
-## Challenges & Engineering Resilience
+## Challenges & Technical Resilience
 
 - **The Hallucination Barrier**  
-  We chose "I don't know" over guessing. Accuracy is the only acceptable metric.
+  We prioritized "I don't know" over any hallucinated guess — a non-negotiable principle for medical safety.
 
-- **Systemic Sync**  
-  Achieving zero "logic lag" between the Gemini Live audio stream and DigitalOcean GPU-processed vision data required building a custom Multimodal Buffer Controller.
+- **Logic Lag Optimization**  
+  Synchronizing real-time voice, streaming text, and RAG retrieval across AWS Bedrock, Google Cloud Vertex AI, and DigitalOcean Gradient required custom high-speed buffer controllers and latency-aware orchestration.
+
+- **Validation**  
+  Our architecture has been recognized and forked for research by Blockchains, Inc.
+
+## Tech Stack
+
+- **Models**  
+  Amazon Nova (2 Lite, 2 Sonic, Act), Gemini 1.5 Pro (Live API), docTR
+
+- **Infrastructure**  
+  AWS Bedrock, DigitalOcean Gradient™, Google Cloud Vertex AI
+
+- **Database / Vector Store**  
+  Amazon OpenSearch Serverless, Pinecone
+
+- **Languages & Tools**  
+  Python, Groq LPU, FastAPI, React, Tailwind CSS
 
 ## Accomplishments that we're proud of
 
@@ -97,10 +108,20 @@ The system only reasons over verified tokens retrieved from indexed clinical nam
 
 * **Industry Validation**: Our decentralized trust architecture has already been recognized and forked for research by Blockchains, Inc., proving the real-world viability of our technical approach.
 
-## Getting Started & Reproducibility
+## Quick Start
 
-1. **Clone the Repository**
+```bash
+# Clone the repository
+git clone https://github.com/LokeshwaranMoorthi/Healix-Agent.git
+cd Healix-Agent
 
-   ```bash
-   git clone https://github.com/LokeshwaranMoorthi/Healix-Agent.git
-   cd Healix-Agent
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment (choose your provider)
+cp .env.example .env
+# Add your credentials:
+#   AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY
+#   GOOGLE_API_KEY
+#   GRADIENT_ACCESS_TOKEN
+#   PINECONE_API_KEY (if using Pinecone)
