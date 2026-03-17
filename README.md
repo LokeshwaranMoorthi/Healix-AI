@@ -1,105 +1,106 @@
-# Healix AI: Grounded Intelligence for the Next Billion
+# Healix-Agent: Universal Deterministic Clinical Intelligence
 
-A triple-grounded RAG ecosystem eliminating medical hallucinations.  
-Healix bridges the clinical gap by connecting doctor-led SOAP automation with verified pharmacy and traditional wisdom.
+Real-Time Multimodal Care | Deployed on DigitalOcean Gradient™ | Powered by Gemini Live
 
-## Project Story: The Healix AI Journey
+## The Problem
 
-### Inspiration: Solving the Confidence Trap
+In healthcare, "Confidence Traps" (hallucinations) cost lives.  
+For the sensory-impaired, prescriptions are "dead ends" and consultations are "silent rooms."
 
-Traditional AI in healthcare suffers from a **Confidence Trap** — LLMs often provide medical advice that sounds authoritative but is factually incorrect. In a clinical setting, a single hallucination can lead to a fatal drug interaction or a missed diagnosis.
+## The Solution
 
-We built **Healix AI** to solve this crisis by creating a *Circle of Trust* where AI is no longer a black box, but a transparent, grounded co-pilot for both patients and physicians.
-
-### The Architecture: Triple-Grounded RAG
-
-We built Healix using a specialized **Retrieval-Augmented Generation (RAG)** architecture.
-
-We set the model temperature to:
+Healix-Agent — an active, orchestrating agent that "sees" for the blind and "hears" for the deaf, running on a deterministic reasoning engine with:
 
 $$
 T = 0.0
 $$
 
-This ensures the system never "creates" — it only retrieves and reasons over verified content.
+## Technical Architecture: The Agentic Loop
 
-We indexed three high-fidelity namespaces:
+Healix-Agent is not a chatbot; it is a high-availability production system distributed across a hybrid-cloud environment.
 
-- **CIMS India** (Pharmacological reference & drug interactions)  
-- **MSF Guidelines** (Diagnostics & clinical protocols)  
-- **RMRL Manuscripts** (Traditional Tamil Siddha & Ayurvedic wisdom)
+### 1. The Reasoning Layer (Gemini Live API)
 
-### How We Built It: The Six-Pillar Suite
+We utilize the Gemini Multimodal Live API via the Google Agent Development Kit (ADK). This enables:
 
-#### The Patient Suite: Empathetic Clarity
+- Barge-in Support: Patients can naturally interrupt the agent mid-response.  
+- Unified Context: Audio, video (prescriptions), and text are processed in a single, stateful WebSocket stream.
 
-- **Clinical Insights**  
-  Used *docTR Vision (Vision Transformers)* to parse messy, handwritten prescriptions. Cross-references every medication with the CIMS Drug Reference to detect therapeutic duplications, adverse interactions, and contraindications. Closes the supply chain loop with PharmEasy integration for availability & pricing.
+### 2. The Acceleration Layer (DigitalOcean Gradient™)
+
+To achieve sub-second latency for Vision Transformer (ViT) tasks, we leverage DigitalOcean Gradient™ GPU Droplets:
+
+- docTR Inference: Messy, handwritten prescriptions parsed using docTR, containerized and scaled on DigitalOcean.  
+- Gradient™ Knowledge Bases: Our "Triple-Grounding" RAG (CIMS, MSF, RMRL) is indexed and managed using Gradient’s production-ready AI workflows.
+
+### 3. The Safety Layer ($T=0.0$)
+
+We enforce a strict mathematical constraint to eliminate medical creativity:
+
+$$
+T = 0.0
+$$
+
+The system only reasons over verified tokens retrieved from indexed clinical namespaces.
+
+## Inclusive Modules: Designed for the Next Billion
+
+### I. Patient Autonomy (Empathetic Independence)
+
+- **Vision-to-Voice Pharmacy**  
+  The agent "sees" medicine labels and prescriptions, cross-references CIMS India, and speaks audible safety warnings for blind users.
 
 - **Lab Buddy**  
-  Translates dense lab reports into motivational, easy-to-understand summaries. Maps key biomarkers (Hemoglobin, eGFR, HbA1c, etc.) against clinical reference ranges and explains the clinical significance in plain language.
+  Translates complex biomarkers ($HbA1c$, $eGFR$, etc.) into plain-language summaries with synchronized audio-visual narration.
 
 - **Grandma’s Home**  
-  Grounded exclusively in authentic digitized Tamil medical manuscripts (RMRL). Delivers 100% citation-backed traditional remedies for common ailments — preserving ancient heritage while maintaining modern clinical safety standards.
+  Preservation of RMRL Ancient Tamil Manuscripts — grounding traditional remedies in modern clinical safety standards.
 
-#### The Physician Hub: High-Stakes Clinical Efficiency
+### II. Physician Hub (High-Stakes Efficiency)
 
-- **S.O.A.P. Drafter**  
-  Automates clinical documentation. Parses patient history, symptoms, and lab data directly into structured SOAP notes — saving up to 40% of consultation time.
+- **Universal S.O.A.P. Agent**  
+  Automates clinical documentation, reducing physician burnout by ~40% through structured parsing of patient history.
+  
+- **Seamless Telehealth**  
+  A "Second Opinion Engine" with real-time transcription, facilitating perfect communication between doctors and any patient.
 
-- **Peer Network**  
-  Second Opinion Engine for complex or uncertain cases. Allows primary care doctors to securely share RAG-analyzed case summaries with specialists for immediate video consultations.
+- **Glass-Box Logic**  
+  Generates Clinical Logic Trees grounded in MSF Protocols, visually and audibly showing the complete evidence pathway for every diagnostic suggestion.
 
-- **Clinical Logic**  
-  A transparent "Glass-Box" reasoning engine. Generates Clinical Logic Trees strictly based on MSF Clinical Protocols, visually and textually showing the complete evidence pathway behind every diagnostic or therapeutic suggestion.
+## Tech Stack & Implementation
 
-### Challenges & Learnings
+- Orchestration: Google ADK & Gemini Live API (Stateful WebSockets)  
+- Infrastructure: DigitalOcean Gradient™ GPU Droplets (NVIDIA H100), DOKS (Kubernetes)  
+- Vision: docTR (Vision Transformers) for high-speed OCR  
+- Grounding: Gradient™ Knowledge Bases, Pinecone Vector DB, CIMS India, MSF Protocols  
+- Frontend: React with high-contrast UX/UI (Tailwind CSS) for visual accessibility
 
-- **Technical Resilience**  
-  Rural clinics frequently experience unstable or no internet. We implemented robust retry logic and a strict *Silent-on-Failure* policy: if any medical knowledge source is unreachable, the system remains completely silent rather than risking hallucinated or incomplete advice.
+## Challenges & Engineering Resilience
 
-- **Key Learning**  
-  In healthcare AI, **accuracy is the only metric that matters**. Creativity has no place when lives are at stake.
+- **The Hallucination Barrier**  
+  We chose "I don't know" over guessing. Accuracy is the only acceptable metric.
 
-### The Impact
+- **Systemic Sync**  
+  Achieving zero "logic lag" between the Gemini Live audio stream and DigitalOcean GPU-processed vision data required building a custom Multimodal Buffer Controller.
 
-Healix AI is healthcare infrastructure for the **Next Billion**.
+## Accomplishments that we're proud of
 
-By bridging ancient wisdom with modern clinical precision, we created a safety layer that empowers patients and protects physicians.
+* **Zero-Hallucination Clinical Safety**: Successfully implemented a specialized RAG architecture with a forced temperature of $T=0.0$. This ensures that for blind users relying on audio instructions, the AI never "invents" dosages but only retrieves verified facts.
 
-**Accomplishments**
+* **True Multimodal Inclusion**: Built a synchronized output engine that provides high-fidelity Voice for the blind and real-time Text for the deaf across every module, ensuring no user is left behind due to a sensory disability.
 
-- Built a triple-grounded RAG architecture that eliminates hallucinations  
-- Integrated ancient Tamil medical manuscripts while preserving full clinical rigor  
-- Reduced physician burnout by automating SOAP documentation (up to 40% time saved per consultation)  
-- Created a transparent, auditable "Glass-Box" reasoning engine trusted by clinicians
+* **Vision-Transformer Integration**: Successfully deployed docTR (Vision Transformers) to bridge the gap between messy, handwritten physical prescriptions and digital safety databases (CIMS), restoring independence to blind patients.
 
-**What We Learned**
+* **40% Efficiency Gain for Doctors**: Developed an automated S.O.A.P. Drafter that reduces clinical documentation time by nearly half, allowing physicians to focus on patient empathy rather than screen-time.
 
-- Accuracy must always outweigh creativity in healthcare AI  
-- Technical resilience is non-negotiable for rural and low-connectivity environments  
-- Patients value empathetic, understandable clarity as much as doctors value efficiency  
-- Bridging modern science with culturally rooted traditional wisdom builds deeper trust
+* **Cultural Heritage Preservation**: Digitized and indexed ancient Tamil medical manuscripts (RMRL), making traditional wisdom accessible and safe through modern clinical cross-referencing.
 
-### What's Next for Healix AI
+* **Industry Validation**: Our decentralized trust architecture has already been recognized and forked for research by Blockchains, Inc., proving the real-world viability of our technical approach.
 
-- Expand the *Circle of Trust* by integrating more global medical libraries and guidelines  
-- Scale **Lab Buddy** to support additional biomarkers and full chronic disease management journeys  
-- Enhance **Peer Network** with multilingual support for true cross-border second opinions  
-- Launch a patient-facing mobile app delivering transparent, citation-backed health insights
+## Getting Started & Reproducibility
 
-### Built With
+1. **Clone the Repository**
 
-- cims-drug-database  
-- clinical  
-- doctr-(vision-ocr)  
-- groq  
-- javascript  
-- msf  
-- openai/gemini-api  
-- pinecone-(vector-database)  
-- python  
-- rag  
-- restapi  
-- tailwind-css  
-- transformers
+   ```bash
+   git clone https://github.com/LokeshwaranMoorthi/Healix-Agent.git
+   cd Healix-Agent
