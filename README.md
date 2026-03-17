@@ -17,7 +17,8 @@ Healix-Agent is architected to leverage the frontier features of each major plat
 | GPU Acceleration     | DigitalOcean Gradient™    | docTR (Vision Transformers) on H100 Droplets for handwritten prescription OCR  |
 | Memory / RAG         | Vector DB                 | Nova Multimodal Embeddings & Pinecone for Triple-Grounded verification         |
 
-**Demo Video**  
+## Demo Video
+
 Watch a live demonstration of Healix-Agent in action:  
 [Healix-Agent Demo Drive Link](https://drive.google.com/file/d/1Gy1a-hynd65kZ_GghRfwM8yzq04sySFJ/view?usp=sharing)
 
